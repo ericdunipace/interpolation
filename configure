@@ -27,6 +27,8 @@ else
         echo "*** GMP and MPFR found"
         pkgcflags=`pkg-config --cflags gmp mpfr`
         pkglibs=`pkg-config --libs gmp mpfr`
+        prefix="PKG_LIBS = "
+        pkglibs="$prefix$pkglibs"
     fi
 fi
 
