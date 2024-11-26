@@ -12,7 +12,7 @@ fi
 
 ## check for gmp
 pkg-config --exists gmp
-if [ $? -ne 0 ]; then
+if [ $? -ne 1 ]; then
     echo "*** pkg-config is installed but 'pkg-config --exists gmp' did not return 0. Defaulting to no GMP intallation."
     pkgcflags=`pkg-config --cflags -DCGAL_DISABLE_GMP=1 -DCGAL_NO_GMP=1`
     pkglibs=''
