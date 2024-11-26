@@ -20,4 +20,4 @@ LinkingTo:
     BH
 Encoding: UTF-8
 RoxygenNote: 7.2.3
-SystemRequirements: C++ 17, gmp
+SystemRequirements: C++ 17
