@@ -39,5 +39,6 @@ fi
 ## substitute them in
 
 sed -e "s|@PKG_CXXFLAGS@|$pkgcflags|" -e "s|@PKG_LIBS@|$pkglibs|" src/Makevars.in > src/Makevars
+sed -e "s|@PKG_CXXFLAGS@|$pkgcflags|" -e "s|@PKG_LIBS@|$pkglibs|" src/Makevars.in > src/Makevars.win
 
 exit 0
