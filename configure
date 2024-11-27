@@ -14,15 +14,19 @@ fi
 pkg-config --exists gmp
 if [ $? -ne 1 ]; then
     echo "*** pkg-config is installed but 'pkg-config --exists gmp' did not return 0. Defaulting to no GMP intallation."
-    pkgcflags=`pkg-config --cflags -DCGAL_DISABLE_GMP=1 -DCGAL_NO_GMP=1`
-    pkglibs=''
+    pkgcflags=`pkg-config --cflags`
+    suffix=" -DCGAL_DISABLE_GMP=1 -DCGAL_NO_GMP=1"
+    pkgcflags="$pkgcflags$suffix"
+    pkglibs=""
 else
     ## check for mpfr
     pkg-config --exists mpfr
     if [ $? -ne 0 ]; then
         echo "*** pkg-config is installed but 'pkg-config --exists mpfr' did not return 0. Defaulting to no GMP intallation."
-        pkgcflags=`pkg-config --cflags -DCGAL_DISABLE_GMP=1 -DCGAL_NO_GMP=1`
-        pkglibs=''
+        pkgcflags=`pkg-config --cflags`
+        suffix=" -DCGAL_DISABLE_GMP=1 -DCGAL_NO_GMP=1"
+        pkgcflags="$pkgcflags$suffix"
+        pkglibs=""
     else
         echo "*** GMP and MPFR found"
         pkgcflags=`pkg-config --cflags gmp mpfr`
